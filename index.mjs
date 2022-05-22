@@ -266,4 +266,16 @@ export class TSON {
     /**Link to {@link TSON.deregister}. */
     static deregister = this.instance.deregister.bind(this.instance);
 }
+/**Link to {@link TSON.forward}. */
+export const forward = TSON.forward;
+/**Link to {@link TSON.backward}. */
+export const backward = TSON.backward;
+/**Link to {@link TSON.stringify}. */
+export const stringify = TSON.stringify;
+/**Link to {@link TSON.parse}. */
+export const parse = TSON.parse;
+/**Link to {@link TSON.register}. */
+export const register = TSON.register;
+/**Link to {@link TSON.deregister}. */
+export const deregister = TSON.deregister;
 export default TSON;

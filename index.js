@@ -4,7 +4,7 @@
 // This software is released under the MIT License.
 // https://opensource.org/licenses/MIT
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.TSON = void 0;
+exports.deregister = exports.register = exports.parse = exports.stringify = exports.backward = exports.forward = exports.TSON = void 0;
 ;
 /**
     TSON - A Type-safe Serializer like JSON
@@ -270,4 +270,16 @@ class TSON {
     static deregister = this.instance.deregister.bind(this.instance);
 }
 exports.TSON = TSON;
+/**Link to {@link TSON.forward}. */
+exports.forward = TSON.forward;
+/**Link to {@link TSON.backward}. */
+exports.backward = TSON.backward;
+/**Link to {@link TSON.stringify}. */
+exports.stringify = TSON.stringify;
+/**Link to {@link TSON.parse}. */
+exports.parse = TSON.parse;
+/**Link to {@link TSON.register}. */
+exports.register = TSON.register;
+/**Link to {@link TSON.deregister}. */
+exports.deregister = TSON.deregister;
 exports.default = TSON;

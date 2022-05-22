@@ -28,7 +28,7 @@ Serialized data from serializer.
 
 #### Defined in
 
-[index.ts:38](https://github.com/System233/tson-serializer/blob/24db890/index.ts#L38)
+[index.ts:38](https://github.com/System233/tson-serializer/blob/9e5d98c/index.ts#L38)
 
 ___
 
@@ -40,4 +40,4 @@ The name of the serializer that handles this data.
 
 #### Defined in
 
-[index.ts:36](https://github.com/System233/tson-serializer/blob/24db890/index.ts#L36)
+[index.ts:36](https://github.com/System233/tson-serializer/blob/9e5d98c/index.ts#L36)

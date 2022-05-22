@@ -146,4 +146,23 @@ export declare class TSON {
     /**Link to {@link TSON.deregister}. */
     static readonly deregister: (name: string) => boolean;
 }
+/**Link to {@link TSON.forward}. */
+export declare const forward: {
+    (value: any[]): TSONData[];
+    (value: any): TSONData;
+};
+/**Link to {@link TSON.backward}. */
+export declare const backward: <T = any>(value: TSONData | TSONData[]) => T;
+/**Link to {@link TSON.stringify}. */
+export declare const stringify: (value: any, replacer?: ((this: any, key: string, value: any) => any) | null | undefined, space?: number | undefined) => string;
+/**Link to {@link TSON.parse}. */
+export declare const parse: <T = any>(text: string, reviver?: ((this: any, key: string, value: any) => any) | undefined) => T;
+/**Link to {@link TSON.register}. */
+export declare const register: {
+    <T, D>(serializer: TSONSerializer<T, D>): boolean;
+    <T_1, D_1>(name: string, load: (data: D_1) => T_1, dump: (value: T_1) => D_1, match: (value: any) => boolean, recursive?: boolean | undefined): boolean;
+    <T_2, D_2>(constructor: new (...data: any) => T_2, load: (data: D_2) => T_2, dump: (value: T_2) => D_2, match?: ((value: any) => boolean) | null | undefined, recursive?: boolean | undefined): boolean;
+};
+/**Link to {@link TSON.deregister}. */
+export declare const deregister: (name: string) => boolean;
 export default TSON;

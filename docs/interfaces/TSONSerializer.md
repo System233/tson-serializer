@@ -34,7 +34,7 @@ Whether to process `load()` input and `dump()` output recursively.
 
 #### Defined in
 
-[index.ts:29](https://github.com/System233/tson-serializer/blob/24db890/index.ts#L29)
+[index.ts:29](https://github.com/System233/tson-serializer/blob/9e5d98c/index.ts#L29)
 
 ___
 
@@ -46,7 +46,7 @@ The name of the serializer
 
 #### Defined in
 
-[index.ts:27](https://github.com/System233/tson-serializer/blob/24db890/index.ts#L27)
+[index.ts:27](https://github.com/System233/tson-serializer/blob/9e5d98c/index.ts#L27)
 
 ## Methods
 
@@ -70,7 +70,7 @@ Serialized data for `value`
 
 #### Defined in
 
-[index.ts:19](https://github.com/System233/tson-serializer/blob/24db890/index.ts#L19)
+[index.ts:19](https://github.com/System233/tson-serializer/blob/9e5d98c/index.ts#L19)
 
 ___
 
@@ -94,7 +94,7 @@ Deserialized data for `data`
 
 #### Defined in
 
-[index.ts:14](https://github.com/System233/tson-serializer/blob/24db890/index.ts#L14)
+[index.ts:14](https://github.com/System233/tson-serializer/blob/9e5d98c/index.ts#L14)
 
 ___
 
@@ -118,4 +118,4 @@ Match if `true`, otherwise pass.
 
 #### Defined in
 
-[index.ts:25](https://github.com/System233/tson-serializer/blob/24db890/index.ts#L25)
+[index.ts:25](https://github.com/System233/tson-serializer/blob/9e5d98c/index.ts#L25)

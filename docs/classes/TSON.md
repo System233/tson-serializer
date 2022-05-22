@@ -39,7 +39,7 @@ TSON - A Type-safe Serializer like JSON
 
 #### Defined in
 
-[index.ts:55](https://github.com/System233/tson-serializer/blob/24db890/index.ts#L55)
+[index.ts:55](https://github.com/System233/tson-serializer/blob/9e5d98c/index.ts#L55)
 
 ## Properties
 
@@ -49,7 +49,7 @@ TSON - A Type-safe Serializer like JSON
 
 #### Defined in
 
-[index.ts:51](https://github.com/System233/tson-serializer/blob/24db890/index.ts#L51)
+[index.ts:51](https://github.com/System233/tson-serializer/blob/9e5d98c/index.ts#L51)
 
 ___
 
@@ -59,7 +59,7 @@ ___
 
 #### Defined in
 
-[index.ts:50](https://github.com/System233/tson-serializer/blob/24db890/index.ts#L50)
+[index.ts:50](https://github.com/System233/tson-serializer/blob/9e5d98c/index.ts#L50)
 
 ___
 
@@ -93,7 +93,7 @@ The original object of the `TSONData` object.
 
 #### Defined in
 
-[index.ts:359](https://github.com/System233/tson-serializer/blob/24db890/index.ts#L359)
+[index.ts:359](https://github.com/System233/tson-serializer/blob/9e5d98c/index.ts#L359)
 
 ___
 
@@ -121,7 +121,7 @@ Deregister a TSON Serializer.
 
 #### Defined in
 
-[index.ts:367](https://github.com/System233/tson-serializer/blob/24db890/index.ts#L367)
+[index.ts:367](https://github.com/System233/tson-serializer/blob/9e5d98c/index.ts#L367)
 
 ___
 
@@ -165,7 +165,7 @@ The `TSONData` object of the `value`.
 
 #### Defined in
 
-[index.ts:357](https://github.com/System233/tson-serializer/blob/24db890/index.ts#L357)
+[index.ts:357](https://github.com/System233/tson-serializer/blob/9e5d98c/index.ts#L357)
 
 ___
 
@@ -175,7 +175,7 @@ ___
 
 #### Defined in
 
-[index.ts:355](https://github.com/System233/tson-serializer/blob/24db890/index.ts#L355)
+[index.ts:355](https://github.com/System233/tson-serializer/blob/9e5d98c/index.ts#L355)
 
 ___
 
@@ -209,7 +209,7 @@ Converts a TSON string into an object.
 
 #### Defined in
 
-[index.ts:363](https://github.com/System233/tson-serializer/blob/24db890/index.ts#L363)
+[index.ts:363](https://github.com/System233/tson-serializer/blob/9e5d98c/index.ts#L363)
 
 ___
 
@@ -298,7 +298,7 @@ Register a TSON Serializer for Type.
 
 #### Defined in
 
-[index.ts:365](https://github.com/System233/tson-serializer/blob/24db890/index.ts#L365)
+[index.ts:365](https://github.com/System233/tson-serializer/blob/9e5d98c/index.ts#L365)
 
 ___
 
@@ -327,7 +327,7 @@ Converts a JavaScript value to a TSON string.
 
 #### Defined in
 
-[index.ts:361](https://github.com/System233/tson-serializer/blob/24db890/index.ts#L361)
+[index.ts:361](https://github.com/System233/tson-serializer/blob/9e5d98c/index.ts#L361)
 
 ## Methods
 
@@ -357,7 +357,7 @@ The original object of the `TSONData` object.
 
 #### Defined in
 
-[index.ts:182](https://github.com/System233/tson-serializer/blob/24db890/index.ts#L182)
+[index.ts:182](https://github.com/System233/tson-serializer/blob/9e5d98c/index.ts#L182)
 
 ___
 
@@ -381,7 +381,7 @@ Deregister a TSON Serializer.
 
 #### Defined in
 
-[index.ts:346](https://github.com/System233/tson-serializer/blob/24db890/index.ts#L346)
+[index.ts:346](https://github.com/System233/tson-serializer/blob/9e5d98c/index.ts#L346)
 
 ___
 
@@ -405,7 +405,7 @@ The array of `TSONData` objects of the `value`.
 
 #### Defined in
 
-[index.ts:115](https://github.com/System233/tson-serializer/blob/24db890/index.ts#L115)
+[index.ts:115](https://github.com/System233/tson-serializer/blob/9e5d98c/index.ts#L115)
 
 ▸ **forward**(`value`): [`TSONData`](../interfaces/TSONData.md)<`any`, `any`\>
 
@@ -425,7 +425,7 @@ The `TSONData` object of the `value`.
 
 #### Defined in
 
-[index.ts:122](https://github.com/System233/tson-serializer/blob/24db890/index.ts#L122)
+[index.ts:122](https://github.com/System233/tson-serializer/blob/9e5d98c/index.ts#L122)
 
 ___
 
@@ -455,7 +455,7 @@ Converts a TSON string into an object.
 
 #### Defined in
 
-[index.ts:260](https://github.com/System233/tson-serializer/blob/24db890/index.ts#L260)
+[index.ts:260](https://github.com/System233/tson-serializer/blob/9e5d98c/index.ts#L260)
 
 ___
 
@@ -486,7 +486,7 @@ Register a TSON Serializer for Type.
 
 #### Defined in
 
-[index.ts:271](https://github.com/System233/tson-serializer/blob/24db890/index.ts#L271)
+[index.ts:271](https://github.com/System233/tson-serializer/blob/9e5d98c/index.ts#L271)
 
 ▸ **register**<`T`, `D`\>(`name`, `load`, `dump`, `match`, `recursive?`): `boolean`
 
@@ -517,7 +517,7 @@ Register a TSON Serializer for Type.
 
 #### Defined in
 
-[index.ts:284](https://github.com/System233/tson-serializer/blob/24db890/index.ts#L284)
+[index.ts:284](https://github.com/System233/tson-serializer/blob/9e5d98c/index.ts#L284)
 
 ▸ **register**<`T`, `D`\>(`constructor`, `load`, `dump`, `match?`, `recursive?`): `boolean`
 
@@ -548,7 +548,7 @@ Register a TSON Serializer for Type.
 
 #### Defined in
 
-[index.ts:297](https://github.com/System233/tson-serializer/blob/24db890/index.ts#L297)
+[index.ts:297](https://github.com/System233/tson-serializer/blob/9e5d98c/index.ts#L297)
 
 ___
 
@@ -573,4 +573,4 @@ Converts a JavaScript value to a TSON string.
 
 #### Defined in
 
-[index.ts:251](https://github.com/System233/tson-serializer/blob/24db890/index.ts#L251)
+[index.ts:251](https://github.com/System233/tson-serializer/blob/9e5d98c/index.ts#L251)

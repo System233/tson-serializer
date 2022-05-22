@@ -20,7 +20,7 @@ ArrayBuffer serialized data interface
 
 #### Defined in
 
-[index.ts:42](https://github.com/System233/tson-serializer/blob/24db890/index.ts#L42)
+[index.ts:42](https://github.com/System233/tson-serializer/blob/9e5d98c/index.ts#L42)
 
 ___
 
@@ -30,7 +30,7 @@ ___
 
 #### Defined in
 
-[index.ts:44](https://github.com/System233/tson-serializer/blob/24db890/index.ts#L44)
+[index.ts:44](https://github.com/System233/tson-serializer/blob/9e5d98c/index.ts#L44)
 
 ___
 
@@ -40,4 +40,4 @@ ___
 
 #### Defined in
 
-[index.ts:43](https://github.com/System233/tson-serializer/blob/24db890/index.ts#L43)
+[index.ts:43](https://github.com/System233/tson-serializer/blob/9e5d98c/index.ts#L43)

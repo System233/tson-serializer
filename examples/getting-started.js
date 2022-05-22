@@ -4,6 +4,7 @@
 // https://opensource.org/licenses/MIT
 
 const TSON = require('..');
+
 const arrayBuffer=new ArrayBuffer(5);
 const uint8Array=new Uint8Array(arrayBuffer,1,4);
 uint8Array[0]=0x66;
