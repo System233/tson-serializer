@@ -1,17 +1,17 @@
 {
   "name": "tson-serializer",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Type-safe JSON serializer",
   "main": "index.js",
   "types": "index.d.ts",
   "module": "index.mjs",
   "scripts": {
     "test": "npx ts-node tests/test.ts",
-    "clean":"rm index.d.ts index.js index.mjs",
+    "clean": "rm index.d.ts index.js index.mjs",
     "build": "npm run build:esm&&npm run build:cjs&&npm run build:docs",
     "build:esm": "npx tsc&&mv index.js index.mjs",
-    "build:cjs":"npx tsc -p tsconfig.cjs.json",
-    "build:docs":"npx typedoc"
+    "build:cjs": "npx tsc -p tsconfig.cjs.json",
+    "build:docs": "npx typedoc"
   },
   "repository": {
     "type": "git",
