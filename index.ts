@@ -47,8 +47,8 @@ export interface ArrayBfferData {
     TSON - A Type-safe Serializer like JSON
 */
 export class TSON {
-    private types: TSONSerializer[] = [];
-    private map: Record<string, TSONSerializer> = {};
+    private readonly types: TSONSerializer[] = [];
+    private readonly map: Record<string, TSONSerializer> = {};
     
     /** @hidden */
     private readonly refname = '$ref';
@@ -179,7 +179,7 @@ export class TSON {
      * @param value A TSONData object or array of TSONData objects to be transformed.
      * @returns The original object of the `TSONData` object.
     */
-    backward(value: TSONData | TSONData[]): any {
+    backward<T=any>(value: TSONData | TSONData[]): T {
         let refs: [TSONData, string[]][] = [];
         const map: Record<string, any> = {};
         const get = (path: any[]) => {
@@ -257,8 +257,8 @@ export class TSON {
      * @param text A valid TSON string.
      * @param reviver A function that transforms the results. This function is called for each member of the object. If a member contains nested objects, the nested objects are transformed before the parent object is. 
     */
-    parse(text: string, reviver?: (this: any, key: string, value: any) => any) {
-        return this.backward(JSON.parse(text, reviver));
+    parse<T=any>(text: string, reviver?: (this: any, key: string, value: any) => any) {
+        return this.backward<T>(JSON.parse(text, reviver));
     }
 
     /**
@@ -352,21 +352,19 @@ export class TSON {
         }
         return false;
     }
+    static readonly instance=new TSON;
+    /**Link to {@link TSON.forward}. */
+    static readonly forward=this.instance.forward.bind(this.instance);
+    /**Link to {@link TSON.backward}. */
+    static readonly backward=this.instance.backward.bind(this.instance);
+    /**Link to {@link TSON.stringify}. */
+    static readonly stringify=this.instance.stringify.bind(this.instance);
+    /**Link to {@link TSON.parse}. */
+    static readonly parse=this.instance.parse.bind(this.instance);
+    /**Link to {@link TSON.register}. */
+    static readonly register=this.instance.register.bind(this.instance);
+    /**Link to {@link TSON.deregister}. */
+    static readonly deregister=this.instance.deregister.bind(this.instance);
 }
-export const module=new TSON;
 
-/**Link to {@link TSON.forward}. */
-export const forward=module.forward.bind(module);
-/**Link to {@link TSON.backward}. */
-export const backward=module.backward.bind(module);
-/**Link to {@link TSON.stringify}. */
-export const stringify=module.stringify.bind(module);
-/**Link to {@link TSON.parse}. */
-export const parse=module.parse.bind(module);
-/**Link to {@link TSON.register}. */
-export const register=module.register.bind(module);
-/**Link to {@link TSON.deregister}. */
-export const deregister=module.deregister.bind(module);
-
-/**Default exported TSON instance.*/
-export default module;
+export default TSON;

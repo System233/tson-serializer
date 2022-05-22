@@ -252,19 +252,18 @@ export class TSON {
         }
         return false;
     }
+    static instance = new TSON;
+    /**Link to {@link TSON.forward}. */
+    static forward = this.instance.forward.bind(this.instance);
+    /**Link to {@link TSON.backward}. */
+    static backward = this.instance.backward.bind(this.instance);
+    /**Link to {@link TSON.stringify}. */
+    static stringify = this.instance.stringify.bind(this.instance);
+    /**Link to {@link TSON.parse}. */
+    static parse = this.instance.parse.bind(this.instance);
+    /**Link to {@link TSON.register}. */
+    static register = this.instance.register.bind(this.instance);
+    /**Link to {@link TSON.deregister}. */
+    static deregister = this.instance.deregister.bind(this.instance);
 }
-export const module = new TSON;
-/**Link to {@link TSON.forward}. */
-export const forward = module.forward.bind(module);
-/**Link to {@link TSON.backward}. */
-export const backward = module.backward.bind(module);
-/**Link to {@link TSON.stringify}. */
-export const stringify = module.stringify.bind(module);
-/**Link to {@link TSON.parse}. */
-export const parse = module.parse.bind(module);
-/**Link to {@link TSON.register}. */
-export const register = module.register.bind(module);
-/**Link to {@link TSON.deregister}. */
-export const deregister = module.deregister.bind(module);
-/**Default exported TSON instance.*/
-export default module;
+export default TSON;

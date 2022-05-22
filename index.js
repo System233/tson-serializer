@@ -4,7 +4,7 @@
 // This software is released under the MIT License.
 // https://opensource.org/licenses/MIT
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.deregister = exports.register = exports.parse = exports.stringify = exports.backward = exports.forward = exports.module = exports.TSON = void 0;
+exports.TSON = void 0;
 ;
 /**
     TSON - A Type-safe Serializer like JSON
@@ -255,20 +255,19 @@ class TSON {
         }
         return false;
     }
+    static instance = new TSON;
+    /**Link to {@link TSON.forward}. */
+    static forward = this.instance.forward.bind(this.instance);
+    /**Link to {@link TSON.backward}. */
+    static backward = this.instance.backward.bind(this.instance);
+    /**Link to {@link TSON.stringify}. */
+    static stringify = this.instance.stringify.bind(this.instance);
+    /**Link to {@link TSON.parse}. */
+    static parse = this.instance.parse.bind(this.instance);
+    /**Link to {@link TSON.register}. */
+    static register = this.instance.register.bind(this.instance);
+    /**Link to {@link TSON.deregister}. */
+    static deregister = this.instance.deregister.bind(this.instance);
 }
 exports.TSON = TSON;
-exports.module = new TSON;
-/**Link to {@link TSON.forward}. */
-exports.forward = exports.module.forward.bind(exports.module);
-/**Link to {@link TSON.backward}. */
-exports.backward = exports.module.backward.bind(exports.module);
-/**Link to {@link TSON.stringify}. */
-exports.stringify = exports.module.stringify.bind(exports.module);
-/**Link to {@link TSON.parse}. */
-exports.parse = exports.module.parse.bind(exports.module);
-/**Link to {@link TSON.register}. */
-exports.register = exports.module.register.bind(exports.module);
-/**Link to {@link TSON.deregister}. */
-exports.deregister = exports.module.deregister.bind(exports.module);
-/**Default exported TSON instance.*/
-exports.default = exports.module;
+exports.default = TSON;

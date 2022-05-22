@@ -41,8 +41,8 @@ export interface ArrayBfferData {
     TSON - A Type-safe Serializer like JSON
 */
 export declare class TSON {
-    private types;
-    private map;
+    private readonly types;
+    private readonly map;
     /** @hidden */
     private readonly refname;
     constructor();
@@ -69,7 +69,7 @@ export declare class TSON {
      * @param value A TSONData object or array of TSONData objects to be transformed.
      * @returns The original object of the `TSONData` object.
     */
-    backward(value: TSONData | TSONData[]): any;
+    backward<T = any>(value: TSONData | TSONData[]): T;
     /**
      * Wrapper for `JSON.stringify(TSON.forward(value),replacer,space)`\
      * Converts a JavaScript value to a TSON string.
@@ -84,7 +84,7 @@ export declare class TSON {
      * @param text A valid TSON string.
      * @param reviver A function that transforms the results. This function is called for each member of the object. If a member contains nested objects, the nested objects are transformed before the parent object is.
     */
-    parse(text: string, reviver?: (this: any, key: string, value: any) => any): any;
+    parse<T = any>(text: string, reviver?: (this: any, key: string, value: any) => any): T;
     /**
      * Register a TSON Serializer for Type.
      * @template T The original type.
@@ -125,26 +125,25 @@ export declare class TSON {
      * @returns `true` if deregister was successful, `false` otherwise.
      */
     deregister(name: string): boolean;
+    static readonly instance: TSON;
+    /**Link to {@link TSON.forward}. */
+    static readonly forward: {
+        (value: any[]): TSONData[];
+        (value: any): TSONData;
+    };
+    /**Link to {@link TSON.backward}. */
+    static readonly backward: <T = any>(value: TSONData | TSONData[]) => T;
+    /**Link to {@link TSON.stringify}. */
+    static readonly stringify: (value: any, replacer?: ((this: any, key: string, value: any) => any) | null | undefined, space?: number | undefined) => string;
+    /**Link to {@link TSON.parse}. */
+    static readonly parse: <T = any>(text: string, reviver?: ((this: any, key: string, value: any) => any) | undefined) => T;
+    /**Link to {@link TSON.register}. */
+    static readonly register: {
+        <T, D>(serializer: TSONSerializer<T, D>): boolean;
+        <T_1, D_1>(name: string, load: (data: D_1) => T_1, dump: (value: T_1) => D_1, match: (value: any) => boolean, recursive?: boolean | undefined): boolean;
+        <T_2, D_2>(constructor: new (...data: any) => T_2, load: (data: D_2) => T_2, dump: (value: T_2) => D_2, match?: ((value: any) => boolean) | null | undefined, recursive?: boolean | undefined): boolean;
+    };
+    /**Link to {@link TSON.deregister}. */
+    static readonly deregister: (name: string) => boolean;
 }
-export declare const module: TSON;
-/**Link to {@link TSON.forward}. */
-export declare const forward: {
-    (value: any[]): TSONData[];
-    (value: any): TSONData;
-};
-/**Link to {@link TSON.backward}. */
-export declare const backward: (value: TSONData | TSONData[]) => any;
-/**Link to {@link TSON.stringify}. */
-export declare const stringify: (value: any, replacer?: ((this: any, key: string, value: any) => any) | null | undefined, space?: number | undefined) => string;
-/**Link to {@link TSON.parse}. */
-export declare const parse: (text: string, reviver?: ((this: any, key: string, value: any) => any) | undefined) => any;
-/**Link to {@link TSON.register}. */
-export declare const register: {
-    <T, D>(serializer: TSONSerializer<T, D>): boolean;
-    <T_1, D_1>(name: string, load: (data: D_1) => T_1, dump: (value: T_1) => D_1, match: (value: any) => boolean, recursive?: boolean | undefined): boolean;
-    <T_2, D_2>(constructor: new (...data: any) => T_2, load: (data: D_2) => T_2, dump: (value: T_2) => D_2, match?: ((value: any) => boolean) | null | undefined, recursive?: boolean | undefined): boolean;
-};
-/**Link to {@link TSON.deregister}. */
-export declare const deregister: (name: string) => boolean;
-/**Default exported TSON instance.*/
-export default module;
+export default TSON;
