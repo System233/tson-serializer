@@ -1,0 +1,8 @@
+{
+	"$schema": "https://json-schema.org/draft-07/schema",
+    "name":"TSON - A Type-safe Serializer",
+    "entryPoints":["index.ts"],
+    "out":"docs",
+    "theme":"markdown"
+    
+}

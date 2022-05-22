@@ -1,0 +1,37 @@
+{
+  "name": "tson-serializer",
+  "version": "1.0.0",
+  "description": "Type-safe JSON serializer",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "module": "index.mjs",
+  "scripts": {
+    "test": "npx ts-node tests/test.ts",
+    "clean":"rm index.d.ts index.js index.mjs",
+    "build": "npm run build:esm&&npm run build:cjs&&npm run build:docs",
+    "build:esm": "npx tsc&&mv index.js index.mjs",
+    "build:cjs":"npx tsc -p tsconfig.cjs.json",
+    "build:docs":"npx typedoc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/System233/tson-serializer.git"
+  },
+  "keywords": [
+    "Type-safe",
+    "JSON",
+    "serializer",
+    "TSON"
+  ],
+  "author": "System233",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/System233/tson-serializer/issues"
+  },
+  "homepage": "https://github.com/System233/tson-serializer#readme",
+  "devDependencies": {
+    "typedoc": "^0.22.15",
+    "typedoc-plugin-markdown": "^3.12.1",
+    "typescript": "^4.6.4"
+  }
+}
