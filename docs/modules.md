@@ -59,7 +59,7 @@ Link to [TSON.backward](classes/TSON.md#backward).
 
 #### Defined in
 
-[index.ts:373](https://github.com/System233/tson-serializer/blob/9e5d98c/index.ts#L373)
+[index.ts:396](https://github.com/System233/tson-serializer/blob/1e88e2c/index.ts#L396)
 
 ___
 
@@ -81,7 +81,7 @@ Link to [TSON.deregister](classes/TSON.md#deregister).
 
 #### Defined in
 
-[index.ts:381](https://github.com/System233/tson-serializer/blob/9e5d98c/index.ts#L381)
+[index.ts:404](https://github.com/System233/tson-serializer/blob/1e88e2c/index.ts#L404)
 
 ___
 
@@ -103,7 +103,7 @@ Link to [TSON.forward](classes/TSON.md#forward).
 
 #### Defined in
 
-[index.ts:371](https://github.com/System233/tson-serializer/blob/9e5d98c/index.ts#L371)
+[index.ts:394](https://github.com/System233/tson-serializer/blob/1e88e2c/index.ts#L394)
 
 ▸ **forward**(`value`): [`TSONData`](interfaces/TSONData.md)<`any`, `any`\>
 
@@ -121,7 +121,7 @@ Link to [TSON.forward](classes/TSON.md#forward).
 
 #### Defined in
 
-[index.ts:371](https://github.com/System233/tson-serializer/blob/9e5d98c/index.ts#L371)
+[index.ts:394](https://github.com/System233/tson-serializer/blob/1e88e2c/index.ts#L394)
 
 ___
 
@@ -150,7 +150,7 @@ Link to [TSON.parse](classes/TSON.md#parse).
 
 #### Defined in
 
-[index.ts:377](https://github.com/System233/tson-serializer/blob/9e5d98c/index.ts#L377)
+[index.ts:400](https://github.com/System233/tson-serializer/blob/1e88e2c/index.ts#L400)
 
 ___
 
@@ -179,7 +179,7 @@ Link to [TSON.register](classes/TSON.md#register).
 
 #### Defined in
 
-[index.ts:379](https://github.com/System233/tson-serializer/blob/9e5d98c/index.ts#L379)
+[index.ts:402](https://github.com/System233/tson-serializer/blob/1e88e2c/index.ts#L402)
 
 ▸ **register**<`T`, `D`\>(`name`, `load`, `dump`, `match`, `recursive?`): `boolean`
 
@@ -208,7 +208,7 @@ Link to [TSON.register](classes/TSON.md#register).
 
 #### Defined in
 
-[index.ts:379](https://github.com/System233/tson-serializer/blob/9e5d98c/index.ts#L379)
+[index.ts:402](https://github.com/System233/tson-serializer/blob/1e88e2c/index.ts#L402)
 
 ▸ **register**<`T`, `D`\>(`constructor`, `load`, `dump`, `match?`, `recursive?`): `boolean`
 
@@ -237,7 +237,7 @@ Link to [TSON.register](classes/TSON.md#register).
 
 #### Defined in
 
-[index.ts:379](https://github.com/System233/tson-serializer/blob/9e5d98c/index.ts#L379)
+[index.ts:402](https://github.com/System233/tson-serializer/blob/1e88e2c/index.ts#L402)
 
 ___
 
@@ -261,4 +261,4 @@ Link to [TSON.stringify](classes/TSON.md#stringify).
 
 #### Defined in
 
-[index.ts:375](https://github.com/System233/tson-serializer/blob/9e5d98c/index.ts#L375)
+[index.ts:398](https://github.com/System233/tson-serializer/blob/1e88e2c/index.ts#L398)

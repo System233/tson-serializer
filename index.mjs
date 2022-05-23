@@ -32,12 +32,30 @@ export class TSON {
         this.register('Date', x => new Date(x), x => x.toJSON(), x => x instanceof Date);
         this.register('NaN', () => NaN, () => void 0, x => Number.isNaN(x));
         this.register('Infinity', (x) => x ? Number.POSITIVE_INFINITY : Number.NEGATIVE_INFINITY, (x) => x > 0, x => typeof x == 'number' && !Number.isNaN(x) && !Number.isFinite(x));
-        this.register('symbol', x => Symbol(x), x => x.description, x => typeof x == 'symbol');
+        const builtins = Object.values(Object.getOwnPropertyDescriptors(Symbol)).filter(value => typeof value.value == 'symbol').map(x => x.value);
+        const n2smap = Object.fromEntries(builtins.map(symbol => [symbol.description, symbol]));
+        const s2nmap = Object.fromEntries(builtins.map(symbol => [symbol, symbol.description]));
+        this.register('symbol', data => {
+            if (!data.description) {
+                return Symbol();
+            }
+            if (data.builtin) {
+                return n2smap[data.description];
+            }
+            if (data.shared) {
+                return Symbol.for(data.description);
+            }
+            return Symbol(data.description);
+        }, value => ({
+            description: value.description,
+            builtin: value in s2nmap,
+            shared: value.description != null && !!Symbol.for(value.description)
+        }), value => typeof value == 'symbol');
         this.register('bigint', x => BigInt(x), x => x.toString(), x => typeof x == 'bigint');
         this.register('undefined', () => void 0, () => void 0, x => typeof x == 'undefined');
         this.register('boolean', x => x, x => x, x => typeof x == 'boolean');
         this.register('string', x => x, x => x, x => typeof x == 'string');
-        this.register('number', x => x, x => x, x => typeof x == 'number');
+        this.register('number', x => x, x => x, x => typeof x == 'number' && !Number.isNaN(x) && Number.isFinite(x));
     }
     /** @hidden */
     referenceable(value) {

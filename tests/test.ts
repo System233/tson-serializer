@@ -111,19 +111,25 @@ const data={
     dataViewRef,
     NaN:NaN,
     Infinity:Infinity,
-    NegativeInfinity:-Infinity
+    NegativeInfinity:-Infinity,
+    iterator:Symbol.iterator
 }
 console.log(TSON.forward(data));
 const tson=TSON.stringify(data,null,2);
 console.log(tson);
-const result=TSON.parse(tson);
+const result=TSON.parse<typeof data>(tson);
 console.log(result);
-console.log(result.map.get(result.circle));
-console.log(result.set.has(result.circle));
+console.assert(result.Infinity==Infinity,'Infinity fail');
+console.assert( Number.isNaN(result.NaN),'NaN fail');
+console.assert(result.NegativeInfinity==Number.NEGATIVE_INFINITY,'-Infinity fail');
+console.assert(result.set.has(result.circle),'set fail');
+console.assert(result.map.has(result.circle),'map fail');
+console.assert(Symbol.iterator==result.iterator,'symbol fail');
+console.assert(result.u8arrayRef.buffer==result.u16arrayRef.buffer,'arraybuffer ref fail');
 
 
 // console.log(TSON.forward(new Number(10)))
-console.log(TSON.forward("123"))
+// console.log(TSON.forward("123"))
 // console.log(TSON.forward(123))
 // console.log(TSON.forward(1n))
 // console.log(TSON.forward(new BigUint64Array(10)))

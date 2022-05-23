@@ -49,7 +49,7 @@ export interface ArrayBfferData {
 export class TSON {
     private readonly types: TSONSerializer[] = [];
     private readonly map: Record<string, TSONSerializer> = {};
-    
+
     /** @hidden */
     private readonly refname = '$ref';
     constructor() {
@@ -81,12 +81,35 @@ export class TSON {
         this.register<Date, string>('Date', x => new Date(x), x => x.toJSON(), x => x instanceof Date);
         this.register<Number, void>('NaN', () => NaN, () => void 0, x => Number.isNaN(x));
         this.register<Number, boolean>('Infinity', (x) => x ? Number.POSITIVE_INFINITY : Number.NEGATIVE_INFINITY, (x) => x > 0, x => typeof x == 'number' && !Number.isNaN(x) && !Number.isFinite(x));
-        this.register<Symbol, string | undefined>('symbol', x => Symbol(x), x => x.description, x => typeof x == 'symbol');
+        const builtins=Object.values(Object.getOwnPropertyDescriptors(Symbol)).filter(value => typeof value.value == 'symbol').map(x=>x.value as symbol);
+        const n2smap= Object.fromEntries(builtins.map(symbol=>[symbol.description,symbol]));
+        const s2nmap= Object.fromEntries(builtins.map(symbol=>[symbol,symbol.description]));
+        this.register<symbol, { description: string | undefined, builtin:boolean , shared: boolean }>('symbol',
+            data => {
+                if (!data.description) {
+                    return Symbol();
+                }
+                if (data.builtin) {
+                    return n2smap[data.description];
+                }
+                if(data.shared){
+                    return Symbol.for(data.description);
+                }
+                return Symbol(data.description);
+            },
+            value => ({
+                description: value.description,
+                    builtin:value in s2nmap,
+                    shared: value.description!=null&&!!Symbol.for(value.description)
+                }),
+            value => typeof value == 'symbol');
+
+
         this.register<bigint, string>('bigint', x => BigInt(x), x => x.toString(), x => typeof x == 'bigint');
         this.register<undefined, undefined>('undefined', () => void 0, () => void 0, x => typeof x == 'undefined');
         this.register<boolean, boolean>('boolean', x => x, x => x, x => typeof x == 'boolean');
         this.register<string, string>('string', x => x, x => x, x => typeof x == 'string');
-        this.register<number, number>('number', x => x, x => x, x => typeof x == 'number');
+        this.register<number, number>('number', x => x, x => x, x => typeof x == 'number'&&!Number.isNaN(x)&&Number.isFinite(x));
 
     }
     /** @hidden */
@@ -113,7 +136,7 @@ export class TSON {
      * @returns The array of `TSONData` objects of the `value`.
     */
     forward(value: any[]): TSONData[];
-    
+
     /**
      * Transform the value to a TSONData object.
      * @param value A value whose type can be object,number,boolean,or other type.
@@ -179,7 +202,7 @@ export class TSON {
      * @param value A TSONData object or array of TSONData objects to be transformed.
      * @returns The original object of the `TSONData` object.
     */
-    backward<T=any>(value: TSONData | TSONData[]): T {
+    backward<T = any>(value: TSONData | TSONData[]): T {
         let refs: [TSONData, string[]][] = [];
         const map: Record<string, any> = {};
         const get = (path: any[]) => {
@@ -257,7 +280,7 @@ export class TSON {
      * @param text A valid TSON string.
      * @param reviver A function that transforms the results. This function is called for each member of the object. If a member contains nested objects, the nested objects are transformed before the parent object is. 
     */
-    parse<T=any>(text: string, reviver?: (this: any, key: string, value: any) => any) {
+    parse<T = any>(text: string, reviver?: (this: any, key: string, value: any) => any) {
         return this.backward<T>(JSON.parse(text, reviver));
     }
 
@@ -268,7 +291,7 @@ export class TSON {
      * @param serializer A TSONSerializer Object.
      * @returns `true` if register was successful, `false` otherwise.
      */
-    register<T,D>(serializer: TSONSerializer<T,D>): boolean;
+    register<T, D>(serializer: TSONSerializer<T, D>): boolean;
 
     /**
      * Register a TSON Serializer for Type.
@@ -352,31 +375,31 @@ export class TSON {
         }
         return false;
     }
-    static readonly instance=new TSON;
+    static readonly instance = new TSON;
     /**Link to {@link TSON.forward}. */
-    static readonly forward=this.instance.forward.bind(this.instance);
+    static readonly forward = this.instance.forward.bind(this.instance);
     /**Link to {@link TSON.backward}. */
-    static readonly backward=this.instance.backward.bind(this.instance);
+    static readonly backward = this.instance.backward.bind(this.instance);
     /**Link to {@link TSON.stringify}. */
-    static readonly stringify=this.instance.stringify.bind(this.instance);
+    static readonly stringify = this.instance.stringify.bind(this.instance);
     /**Link to {@link TSON.parse}. */
-    static readonly parse=this.instance.parse.bind(this.instance);
+    static readonly parse = this.instance.parse.bind(this.instance);
     /**Link to {@link TSON.register}. */
-    static readonly register=this.instance.register.bind(this.instance);
+    static readonly register = this.instance.register.bind(this.instance);
     /**Link to {@link TSON.deregister}. */
-    static readonly deregister=this.instance.deregister.bind(this.instance);
+    static readonly deregister = this.instance.deregister.bind(this.instance);
 }
 
 /**Link to {@link TSON.forward}. */
-export const forward=TSON.forward;
+export const forward = TSON.forward;
 /**Link to {@link TSON.backward}. */
-export const backward=TSON.backward;
+export const backward = TSON.backward;
 /**Link to {@link TSON.stringify}. */
-export const stringify=TSON.stringify;
+export const stringify = TSON.stringify;
 /**Link to {@link TSON.parse}. */
-export const parse=TSON.parse;
+export const parse = TSON.parse;
 /**Link to {@link TSON.register}. */
-export const register=TSON.register;
+export const register = TSON.register;
 /**Link to {@link TSON.deregister}. */
-export const deregister=TSON.deregister;
+export const deregister = TSON.deregister;
 export default TSON;
